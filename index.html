@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<input type="text" value="This is the text to copy" id="copyText" readonly>
+<button onclick="copyText()">Copy</button>
+<p id="message"></p>
+
+<script>
+function copyText() {
+  const text = document.getElementById("copyText").value;
+  navigator.clipboard.writeText(text).then(() => {
+    document.getElementById("message").textContent = "Copied!";
+  }).catch(() => {
+    document.getElementById("message").textContent = "Failed to copy";
+  });
+}
+</script>
+
+</body>
+</html>
